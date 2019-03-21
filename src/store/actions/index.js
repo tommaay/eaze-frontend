@@ -11,6 +11,7 @@ const hostUrl = 'http://api.giphy.com';
 const apiKey = '7F4kv7bFrEvWyUuREIDfMkSPsdFm36Hr'; // my person api key from GIPHY
 
 // Get the top 25 trending GIFs api
+// Use {gif}.images.original.url to display in the
 export const getTrendingGIFS = () => dispatch => {
     dispatch({ type: GET_TRENDING_START });
 
