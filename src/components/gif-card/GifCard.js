@@ -1,44 +1,33 @@
 import React from 'react';
-import styled from 'styled-components';
+import { GifContainer } from './gif-card.style';
 
-const GifContainer = styled.div`
-    box-shadow: 0px 0px 10px gray;
-    margin: 1rem;
-    height: 100%;
-
-    img,
-    .bottom-label {
-        outline: none;
-    }
-
-    .bottom-label {
-        min-height: 4rem;
-        color: #666;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0.5rem 5rem;
-
-        .icon {
-            position: absolute;
-            top: 50%;
-            right: 1rem;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-    }
-`;
+import LikedIcon from './LikedIcon';
+import UnLikedIcon from './UnLikedIcon';
 
 const GifCard = props => {
-    const { images, title } = props.gif;
+    const { images, title, id } = props.gif;
 
     return (
         <GifContainer>
             <img src={images.original.url} width="100%" alt={title} />
             <div className="bottom-label">
                 <p>{title}</p>
-                <i className="fa fa-heart-o fa-2x heart icon" />
+
+                {/* Check to see if the GIF is included in favorites 
+                and display the proper icon if liked or unliked */}
+                {!props.favorites.includes(id) ? (
+                    <UnLikedIcon
+                        id={id}
+                        addToFavorites={props.addToFavorites}
+                        gif={props.gif}
+                    />
+                ) : (
+                    <LikedIcon
+                        id={id}
+                        removeFromFavorites={props.removeFromFavorites}
+                        gif={props.gif}
+                    />
+                )}
             </div>
         </GifContainer>
     );

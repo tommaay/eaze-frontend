@@ -5,16 +5,20 @@ import {
     SEARCH_GIF_START,
     SEARCH_GIF_SUCCESS,
     SEARCH_GIF_FAIL,
+    ADD_TO_FAVORITES,
+    REMOVE_FROM_FAVORITES,
 } from '../actions';
 
 const initialState = {
     gifs: [],
+    favorites: [],
     fetchLoading: false,
     error: null,
 };
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        // Get Trending GIFs
         case GET_TRENDING_START:
             return {
                 ...state,
@@ -35,6 +39,7 @@ const rootReducer = (state = initialState, action) => {
                 error: action.error,
             };
 
+        // Search Gifs
         case SEARCH_GIF_START:
             return {
                 ...state,
@@ -53,6 +58,21 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: action.error,
+            };
+
+        // Favorites - Add/Remove
+        case ADD_TO_FAVORITES:
+            return {
+                ...state,
+                favorites: [...state.favorites, action.payload],
+            };
+
+        case REMOVE_FROM_FAVORITES:
+            return {
+                ...state,
+                favorites: state.favorites.filter(
+                    id => id.toString() !== action.payload.toString()
+                ),
             };
 
         default:

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTrendingGIFS, searchGIFS } from './store/actions';
+import {
+    getTrendingGIFS,
+    searchGIFS,
+    addToFavorites,
+    removeFromFavorites,
+} from './store/actions';
 import { formatSearch } from './helper/helper';
 import styled from 'styled-components';
 
@@ -48,7 +53,13 @@ class App extends Component {
 
                 <section className="content">
                     {this.props.gifs.map(gif => (
-                        <GifCard gif={gif} key={gif.id} />
+                        <GifCard
+                            gif={gif}
+                            key={gif.id}
+                            addToFavorites={this.props.addToFavorites}
+                            removeFromFavorites={this.props.removeFromFavorites}
+                            favorites={this.props.favorites}
+                        />
                     ))}
                 </section>
             </AppContainer>
@@ -59,10 +70,11 @@ class App extends Component {
 const mapStateToProps = state => {
     return {
         gifs: state.gifs,
+        favorites: state.favorites,
     };
 };
 
 export default connect(
     mapStateToProps,
-    { getTrendingGIFS, searchGIFS }
+    { getTrendingGIFS, searchGIFS, addToFavorites, removeFromFavorites }
 )(App);

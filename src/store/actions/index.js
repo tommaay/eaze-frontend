@@ -6,6 +6,8 @@ export const GET_TRENDING_FAIL = 'GET_TRENDING_FAIL';
 export const SEARCH_GIF_START = 'SEARCH_GIF_START';
 export const SEARCH_GIF_SUCCESS = 'SEARCH_GIF_SUCCESS';
 export const SEARCH_GIF_FAIL = 'SEARCH_GIF_FAIL';
+export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
+export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 
 const hostUrl = 'http://api.giphy.com';
 const apiKey = '7F4kv7bFrEvWyUuREIDfMkSPsdFm36Hr'; // my person api key from GIPHY
@@ -41,4 +43,19 @@ export const searchGIFS = searchItem => dispatch => {
             console.log('Search gifs error: ', err);
             dispatch({ type: SEARCH_GIF_FAIL, error: err });
         });
+};
+
+// Add GIF to favorites
+export const addToFavorites = id => {
+    console.log('adding to favorites: ', id);
+    return { type: ADD_TO_FAVORITES, payload: id };
+};
+
+// Remove GIF from favorites
+export const removeFromFavorites = id => {
+    console.log('removing from favorites: ', id);
+    return {
+        type: REMOVE_FROM_FAVORITES,
+        payload: id,
+    };
 };
