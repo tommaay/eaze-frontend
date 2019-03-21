@@ -1,13 +1,35 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getTrendingGIFS } from './store/actions';
 
 class App extends Component {
+    componentDidMount() {
+        this.props.getTrendingGIFS();
+    }
+
     render() {
         return (
             <div className="App">
-                <h1>Eaze's take home exercise</h1>
+                {this.props.gifs.map(gif => (
+                    <img
+                        src={gif.images.original.url}
+                        width="25%"
+                        alt={gif.title}
+                        key={gif.id}
+                    />
+                ))}
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        gifs: state.gifs,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    { getTrendingGIFS }
+)(App);
