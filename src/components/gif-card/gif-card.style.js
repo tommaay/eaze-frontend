@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const GifContainer = styled.div`
     box-shadow: 0px 0px 10px gray;
-    margin: 1rem;
-    height: 100%;
+    margin: 0.8rem;
+    height: min-content;
 
     &:hover {
         transition: all 0.2s ease;
@@ -25,13 +25,14 @@ export const GifContainer = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1rem 6rem;
+        padding: 1rem 4rem;
         background: white;
         margin-top: -3px;
 
         p {
             font-weight: 100;
             text-transform: capitalize;
+            text-align: center;
         }
 
         .icon {
@@ -41,6 +42,7 @@ export const GifContainer = styled.div`
             transform: translateY(-50%);
             cursor: pointer;
             color: red;
+            font-size: 22px;
         }
     }
 `;

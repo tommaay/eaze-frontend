@@ -19,10 +19,8 @@ const AppContainer = styled.div`
     min-height: 100vh;
 
     .content {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
     }
 `;
 
@@ -70,13 +68,13 @@ class App extends Component {
                     searchGIFS={this.submitHandler}
                 />
 
-                <section className="content">
-                    <TabsBar
-                        home={this.state.home}
-                        selectHome={this.selectHome}
-                        selectFavorites={this.selectFavorites}
-                    />
+                <TabsBar
+                    home={this.state.home}
+                    selectHome={this.selectHome}
+                    selectFavorites={this.selectFavorites}
+                />
 
+                <section className="content">
                     {/* Display the home dashboard or favorites 
                     depending on the selected tab */}
                     {this.state.home ? (

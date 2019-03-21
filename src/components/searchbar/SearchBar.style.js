@@ -21,6 +21,10 @@ export const SearchForm = styled.form`
     color: white;
     box-shadow: 0 1px 5px black;
 
+    @media (max-width: 800px) {
+        width: 100%;
+    }
+
     input {
         width: 80%;
         border: none;
@@ -30,6 +34,10 @@ export const SearchForm = styled.form`
         outline: none;
         text-align: center;
         opacity: 0.7;
+
+        @media (max-width: 800px) {
+            width: 70%;
+        }
     }
 
     button {
@@ -46,6 +54,18 @@ export const SearchForm = styled.form`
         letter-spacing: 1px;
         cursor: pointer;
         opacity: 0.7;
+
+        @media (max-width: 800px) {
+            width: 30%;
+        }
+
+        @media (max-width: 550px) {
+            font-size: 1.4rem;
+        }
+
+        @media (max-width: 450px) {
+            font-size: 1.2rem;
+        }
 
         &:hover {
             background: rgb(0, 170, 231, 0.8);

@@ -8,7 +8,7 @@ const GifCard = props => {
     const { images, title } = props.gif;
 
     return (
-        <GifContainer>
+        <GifContainer className="gif-content">
             <img src={images.original.url} width="100%" alt={title} />
             <div className="bottom-label">
                 <p>{title}</p>
