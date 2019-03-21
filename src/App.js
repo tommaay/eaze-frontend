@@ -5,10 +5,18 @@ import { formatSearch } from './helper/helper';
 import styled from 'styled-components';
 
 import SearchBar from './components/searchbar/SearchBar';
+import GifCard from './components/gif-card/GifCard';
 
 const AppContainer = styled.div`
-    background: rgb(20, 20, 20);
+    background: rgb(255, 255, 255);
     min-height: 100vh;
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 class App extends Component {
@@ -38,14 +46,11 @@ class App extends Component {
                     searchGIFS={this.submitHandler}
                 />
 
-                {this.props.gifs.map(gif => (
-                    <img
-                        src={gif.images.original.url}
-                        width="25%"
-                        alt={gif.title}
-                        key={gif.id}
-                    />
-                ))}
+                <section className="content">
+                    {this.props.gifs.map(gif => (
+                        <GifCard gif={gif} key={gif.id} />
+                    ))}
+                </section>
             </AppContainer>
         );
     }

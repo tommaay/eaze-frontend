@@ -9,15 +9,6 @@ export const SearchContainer = styled.div`
     background-image: url(${img});
     background-size: cover;
     background-position: center;
-    /* linear-gradient(
-        to bottom right,
-        rgb(0, 170, 231, 0.9) 0%,
-        rgb(0, 170, 231, 0.8) 10%,
-        rgb(0, 170, 231, 0.5) 30%,
-        rgb(0, 170, 231, 0.5) 70%,
-        rgb(0, 170, 231, 0.7) 90%,
-        rgb(0, 170, 231, 0.9) 100%
-    ); */
 `;
 
 export const SearchForm = styled.form`
@@ -38,7 +29,7 @@ export const SearchForm = styled.form`
         border-bottom-right-radius: 0;
         outline: none;
         text-align: center;
-        opacity: 0.8;
+        opacity: 0.7;
     }
 
     button {
@@ -54,7 +45,7 @@ export const SearchForm = styled.form`
         text-transform: uppercase;
         letter-spacing: 1px;
         cursor: pointer;
-        opacity: 0.8;
+        opacity: 0.7;
 
         &:hover {
             background: rgb(0, 170, 231, 0.8);
