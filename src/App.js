@@ -15,8 +15,8 @@ import MainDashBoard from './components/dashboard/MainDashboard';
 import TabsBar from './components/dashboard/TabsBar';
 
 const AppContainer = styled.div`
-    background: rgb(255, 255, 255);
     min-height: 100vh;
+    background: whitesmoke;
 
     .content {
         display: grid;
