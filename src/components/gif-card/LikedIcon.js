@@ -5,7 +5,7 @@ const LikedIcon = props => {
         <i
             className="fa fa-heart fa-2x heart icon"
             onClick={() => {
-                props.removeFromFavorites(props.id);
+                props.removeFromFavorites(props.gif);
                 props.gif.favorite = false;
             }}
         />

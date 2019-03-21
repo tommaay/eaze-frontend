@@ -10,7 +10,9 @@ import { formatSearch } from './helper/helper';
 import styled from 'styled-components';
 
 import SearchBar from './components/searchbar/SearchBar';
-import GifCard from './components/gif-card/GifCard';
+import FavoritesDashBoard from './components/dashboard/FavoritesDashBoard';
+import MainDashBoard from './components/dashboard/MainDashboard';
+import TabsBar from './components/dashboard/TabsBar';
 
 const AppContainer = styled.div`
     background: rgb(255, 255, 255);
@@ -27,6 +29,8 @@ const AppContainer = styled.div`
 class App extends Component {
     state = {
         searchInput: '',
+        home: true,
+        favorites: false,
     };
 
     componentDidMount() {
@@ -42,7 +46,22 @@ class App extends Component {
         this.props.searchGIFS(searchInput);
     };
 
+    selectHome = () => {
+        this.setState({ home: true, favorites: false });
+    };
+
+    selectFavorites = () => {
+        this.setState({ home: false, favorites: true });
+    };
+
     render() {
+        const {
+            gifs,
+            favorites,
+            addToFavorites,
+            removeFromFavorites,
+        } = this.props;
+
         return (
             <AppContainer>
                 <SearchBar
@@ -52,15 +71,28 @@ class App extends Component {
                 />
 
                 <section className="content">
-                    {this.props.gifs.map(gif => (
-                        <GifCard
-                            gif={gif}
-                            key={gif.id}
-                            addToFavorites={this.props.addToFavorites}
-                            removeFromFavorites={this.props.removeFromFavorites}
-                            favorites={this.props.favorites}
+                    <TabsBar
+                        home={this.state.home}
+                        selectHome={this.selectHome}
+                        selectFavorites={this.selectFavorites}
+                    />
+
+                    {/* Display the home dashboard or favorites 
+                    depending on the selected tab */}
+                    {this.state.home ? (
+                        <MainDashBoard
+                            gifs={gifs}
+                            addToFavorites={addToFavorites}
+                            removeFromFavorites={removeFromFavorites}
+                            favorites={favorites}
                         />
-                    ))}
+                    ) : (
+                        <FavoritesDashBoard
+                            favorites={favorites}
+                            addToFavorites={addToFavorites}
+                            removeFromFavorites={removeFromFavorites}
+                        />
+                    )}
                 </section>
             </AppContainer>
         );
@@ -76,5 +108,10 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getTrendingGIFS, searchGIFS, addToFavorites, removeFromFavorites }
+    {
+        getTrendingGIFS,
+        searchGIFS,
+        addToFavorites,
+        removeFromFavorites,
+    }
 )(App);

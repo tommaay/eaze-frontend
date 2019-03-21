@@ -71,7 +71,7 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 favorites: state.favorites.filter(
-                    id => id.toString() !== action.payload.toString()
+                    gif => gif.id.toString() !== action.payload.id.toString()
                 ),
             };
 

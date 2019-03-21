@@ -5,7 +5,7 @@ import LikedIcon from './LikedIcon';
 import UnLikedIcon from './UnLikedIcon';
 
 const GifCard = props => {
-    const { images, title, id } = props.gif;
+    const { images, title } = props.gif;
 
     return (
         <GifContainer>
@@ -15,15 +15,13 @@ const GifCard = props => {
 
                 {/* Check to see if the GIF is included in favorites 
                 and display the proper icon if liked or unliked */}
-                {!props.favorites.includes(id) ? (
+                {!props.favorites.includes(props.gif) ? (
                     <UnLikedIcon
-                        id={id}
                         addToFavorites={props.addToFavorites}
                         gif={props.gif}
                     />
                 ) : (
                     <LikedIcon
-                        id={id}
                         removeFromFavorites={props.removeFromFavorites}
                         gif={props.gif}
                     />

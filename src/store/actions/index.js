@@ -3,9 +3,15 @@ import axios from 'axios';
 export const GET_TRENDING_START = 'GET_TRENDING_START';
 export const GET_TRENDING_SUCCESS = 'GET_TRENDING_SUCCESS';
 export const GET_TRENDING_FAIL = 'GET_TRENDING_FAIL';
+
 export const SEARCH_GIF_START = 'SEARCH_GIF_START';
 export const SEARCH_GIF_SUCCESS = 'SEARCH_GIF_SUCCESS';
 export const SEARCH_GIF_FAIL = 'SEARCH_GIF_FAIL';
+
+export const GET_BY_ID_START = 'GET_BY_ID_START';
+export const GET_BY_ID_SUCCESS = 'GET_BY_ID_SUCCESS';
+export const GET_BY_ID_FAIL = 'GET_BY_ID_FAIL';
+
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 
@@ -46,16 +52,16 @@ export const searchGIFS = searchItem => dispatch => {
 };
 
 // Add GIF to favorites
-export const addToFavorites = id => {
-    console.log('adding to favorites: ', id);
-    return { type: ADD_TO_FAVORITES, payload: id };
+export const addToFavorites = gif => {
+    console.log('adding to favorites: ', gif);
+    return { type: ADD_TO_FAVORITES, payload: gif };
 };
 
 // Remove GIF from favorites
-export const removeFromFavorites = id => {
-    console.log('removing from favorites: ', id);
+export const removeFromFavorites = gif => {
+    console.log('removing from favorites: ', gif);
     return {
         type: REMOVE_FROM_FAVORITES,
-        payload: id,
+        payload: gif,
     };
 };

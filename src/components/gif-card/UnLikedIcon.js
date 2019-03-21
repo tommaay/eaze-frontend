@@ -5,7 +5,7 @@ const UnLikedIcon = props => {
         <i
             className="fa fa-heart-o fa-2x heart icon"
             onClick={() => {
-                props.addToFavorites(props.id);
+                props.addToFavorites(props.gif);
                 props.gif.favorite = true;
             }}
         />
