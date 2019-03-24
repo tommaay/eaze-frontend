@@ -23,6 +23,9 @@ export const SearchContainer = styled.div`
         top: 0;
         position: fixed;
         z-index: 3;
+        padding: 0 3rem;
+        flex-direction: column;
+        height: 15rem;
     }
 `;
 
@@ -40,6 +43,11 @@ export const SearchForm = styled.form`
         width: 100%;
     }
 
+    @media (max-width: 550px) {
+        height: 3rem;
+        margin-top: -10px;
+    }
+
     input {
         width: 80%;
         border: none;
@@ -52,6 +60,10 @@ export const SearchForm = styled.form`
 
         @media (max-width: 800px) {
             width: 70%;
+        }
+
+        @media (max-width: 550px) {
+            width: 80%;
         }
     }
 
@@ -75,14 +87,11 @@ export const SearchForm = styled.form`
         }
 
         @media (max-width: 550px) {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             background: black;
             color: white;
             text-shadow: 0 0 5px gray;
-        }
-
-        @media (max-width: 450px) {
-            font-size: 1.2rem;
+            width: 20%;
         }
 
         &:hover {
@@ -116,5 +125,10 @@ export const ClearBtn = styled.p`
     &:active {
         box-shadow: 0px 0px 5px black;
         transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 550px) {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
     }
 `;

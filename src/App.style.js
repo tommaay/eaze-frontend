@@ -26,7 +26,8 @@ export const AppContainer = styled.div`
 
         @media (max-width: 550px) {
             column-count: 1;
-            margin-top: 25rem;
+            margin-top: 18.5rem;
+            padding: 4rem;
         }
         .gif-wrapper {
             position: relative;

@@ -11,9 +11,10 @@ export const Tabs = styled.div`
         position: fixed;
         z-index: 3;
         top: 0;
-        margin-top: 20rem;
+        margin-top: 15rem;
         background: dodgerblue;
         opacity: 0.9;
+        height: 3.5rem;
     }
 `;
 
@@ -28,6 +29,12 @@ export const Tab = styled.div`
     letter-spacing: 1.5px;
     font-size: 1.4rem;
     text-shadow: 0px 0px 3px black;
+    margin: 0 1rem;
+
+    @media (max-width: 550px) {
+        width: 8rem;
+        font-size: 1.2rem;
+    }
 `;
 
 export const selected = {
