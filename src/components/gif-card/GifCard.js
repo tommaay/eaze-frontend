@@ -30,13 +30,13 @@ const GifCard = props => {
                 alt={title}
                 onClick={() => openGifModal(gif)}
                 style={
-                    displayModal && gif == gifContent
+                    displayModal && gif === gifContent
                         ? { outline: '5px solid rgb(255,255,88)' }
                         : null
                 }
             />
 
-            {displayModal && gif == gifContent ? (
+            {displayModal && gif === gifContent ? (
                 <GifModal
                     favorites={favorites}
                     addToFavorites={addToFavorites}
