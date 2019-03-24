@@ -28,7 +28,6 @@ const selected = {
 };
 
 const TabsBar = props => {
-    console.log('props.home', props.home);
     return (
         <Tabs>
             <Tab
