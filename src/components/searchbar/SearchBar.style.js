@@ -75,6 +75,9 @@ export const SearchForm = styled.form`
 
         @media (max-width: 550px) {
             font-size: 1.4rem;
+            background: black;
+            color: white;
+            text-shadow: 0 0 5px gray;
         }
 
         @media (max-width: 450px) {

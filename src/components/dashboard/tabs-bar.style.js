@@ -12,7 +12,8 @@ export const Tabs = styled.div`
         z-index: 3;
         top: 0;
         margin-top: 20rem;
-        background: rgb(0, 170, 231, 0.95);
+        background: dodgerblue;
+        opacity: 0.9;
     }
 `;
 

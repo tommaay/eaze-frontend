@@ -89,6 +89,11 @@ export const ContentCard = styled.div`
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
 
+        @media (max-width: 550px) {
+            background: black;
+            color: white;
+        }
+
         .modal-content {
             text-align: center;
             text-shadow: 0 0 5px gray;

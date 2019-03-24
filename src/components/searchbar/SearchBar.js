@@ -9,6 +9,7 @@ const SearchBar = props => {
                     type="text"
                     onChange={props.changeHandler}
                     name="searchInput"
+                    required
                 />
                 <button>Search</button>
             </SearchForm>
