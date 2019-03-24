@@ -2,6 +2,7 @@ import React from 'react';
 import { ContentCard } from './gif-card.style';
 import LikedIcon from './LikedIcon';
 import UnLikedIcon from './UnLikedIcon';
+import { GifImageModal } from './gif-card.style';
 
 const GifModal = props => {
     const {
@@ -10,6 +11,8 @@ const GifModal = props => {
         removeFromFavorites,
         favorites,
         removeGifModal,
+        images,
+        title,
     } = props;
 
     return (
@@ -31,6 +34,8 @@ const GifModal = props => {
                     />
                 )}
             </div>
+
+            <GifImageModal src={images.original.url} width="100%" alt={title} />
 
             {/* GIF content info */}
             <div className="modal-content-container">

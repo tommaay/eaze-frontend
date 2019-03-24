@@ -43,6 +43,9 @@ const GifCard = props => {
                     removeFromFavorites={removeFromFavorites}
                     gif={gif}
                     removeGifModal={removeGifModal}
+                    images={images}
+                    title={title}
+                    displayModal={displayModal}
                 />
             ) : null}
         </>
