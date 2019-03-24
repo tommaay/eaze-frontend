@@ -7,6 +7,8 @@ import {
     SEARCH_GIF_FAIL,
     ADD_TO_FAVORITES,
     REMOVE_FROM_FAVORITES,
+    DISPLAY_GIF_MODAL,
+    REMOVE_GIF_MODAL,
 } from '../actions';
 
 const initialState = {
@@ -14,6 +16,8 @@ const initialState = {
     favorites: [],
     fetchLoading: false,
     error: null,
+    gifContent: {},
+    displayModal: false,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -60,7 +64,7 @@ const rootReducer = (state = initialState, action) => {
                 error: action.error,
             };
 
-        // Favorites - Add/Remove
+        // Favorites - Add / Remove
         case ADD_TO_FAVORITES:
             return {
                 ...state,
@@ -73,6 +77,21 @@ const rootReducer = (state = initialState, action) => {
                 favorites: state.favorites.filter(
                     gif => gif.id.toString() !== action.payload.id.toString()
                 ),
+            };
+
+        // Add / Remove GIF content
+        case DISPLAY_GIF_MODAL:
+            return {
+                ...state,
+                gifContent: action.payload,
+                displayModal: true,
+            };
+
+        case REMOVE_GIF_MODAL:
+            return {
+                ...state,
+                gifContent: {},
+                displayModal: false,
             };
 
         default:

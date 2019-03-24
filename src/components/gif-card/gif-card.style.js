@@ -1,10 +1,15 @@
-import styled from 'styled-components';
-import spinner from '../../assets/images/loading.gif';
+import styled, { keyframes } from 'styled-components';
 
-export const GifContainer = styled.div`
+const fadeIn = keyframes`
+  0% {opacity: 0}
+  100% {left: 1}
+`;
+
+export const GifImage = styled.img`
+    outline: none;
     box-shadow: 0px 0px 10px gray;
-    margin: 0.8rem;
-    height: min-content;
+    margin: 1rem 0;
+    cursor: pointer;
 
     &:hover {
         transition: all 0.2s ease;
@@ -13,41 +18,62 @@ export const GifContainer = styled.div`
         position: relative;
         z-index: 2;
     }
+`;
 
-    img,
-    .bottom-label {
-        outline: none;
-    }
+export const ContentCard = styled.div`
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 100%;
+    max-width: 30rem;
+    max-height: 20rem;
+    background: rgb(0, 170, 231, 0.95);
+    color: white;
+    padding: 1.5rem;
+    border: 1px solid gray;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0px 0px 2px gray;
+    animation: ${fadeIn} 0.4s;
 
-    img {
-        background-image: url(${spinner});
-    }
-
-    .bottom-label {
-        min-height: 4rem;
-        color: #666;
-        position: relative;
+    .modal-top {
         display: flex;
+        justify-content: space-between;
+        height: 10%;
+
+        .close-icon {
+            cursor: pointer;
+        }
+    }
+
+    .modal-content-container {
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 1rem 4rem;
-        background: white;
-        margin-top: -3px;
+        height: 90%;
+        padding: 0 2rem;
 
-        p {
-            font-weight: 100;
-            text-transform: capitalize;
+        .modal-content {
             text-align: center;
+
+            h5 {
+                margin-bottom: 3rem;
+            }
         }
 
-        .icon {
-            position: absolute;
-            top: 50%;
-            right: 1rem;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: red;
-            font-size: 22px;
+        .capitalize {
+            text-transform: capitalize;
         }
     }
+`;
+
+export const Icon = styled.i`
+    cursor: pointer;
+    color: red;
+    font-size: 30px;
+    margin-top: -5px;
 `;

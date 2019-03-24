@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-    getTrendingGIFS,
-    searchGIFS,
-    addToFavorites,
-    removeFromFavorites,
-} from './store/actions';
+import { getTrendingGIFS, searchGIFS } from './store/actions';
 import { formatSearch } from './helper/helper';
 import styled from 'styled-components';
 
@@ -20,7 +15,8 @@ const AppContainer = styled.div`
 
     .content {
         column-count: 5;
-        padding: 2rem;
+        padding: 1rem 2rem;
+        width: 100%;
 
         @media (max-width: 1200px) {
             column-count: 4;
@@ -70,12 +66,7 @@ class App extends Component {
     };
 
     render() {
-        const {
-            gifs,
-            favorites,
-            addToFavorites,
-            removeFromFavorites,
-        } = this.props;
+        const { gifs, favorites } = this.props;
 
         return (
             <AppContainer>
@@ -95,18 +86,9 @@ class App extends Component {
                     {/* Display the home dashboard or favorites 
                     depending on the selected tab */}
                     {this.state.home ? (
-                        <MainDashBoard
-                            gifs={gifs}
-                            addToFavorites={addToFavorites}
-                            removeFromFavorites={removeFromFavorites}
-                            favorites={favorites}
-                        />
+                        <MainDashBoard gifs={gifs} favorites={favorites} />
                     ) : (
-                        <FavoritesDashBoard
-                            favorites={favorites}
-                            addToFavorites={addToFavorites}
-                            removeFromFavorites={removeFromFavorites}
-                        />
+                        <FavoritesDashBoard favorites={favorites} />
                     )}
                 </section>
             </AppContainer>
@@ -126,7 +108,5 @@ export default connect(
     {
         getTrendingGIFS,
         searchGIFS,
-        addToFavorites,
-        removeFromFavorites,
     }
 )(App);

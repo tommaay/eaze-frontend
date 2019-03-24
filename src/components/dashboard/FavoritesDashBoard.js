@@ -9,7 +9,6 @@ const FavoritesDashBoard = props => {
                       <GifCard
                           gif={gif}
                           key={gif.id}
-                          removeFromFavorites={props.removeFromFavorites}
                           favorites={props.favorites}
                       />
                   ))

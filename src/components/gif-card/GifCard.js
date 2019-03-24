@@ -1,34 +1,62 @@
 import React from 'react';
-import { GifContainer } from './gif-card.style';
-
-import LikedIcon from './LikedIcon';
-import UnLikedIcon from './UnLikedIcon';
+import { connect } from 'react-redux';
+import {
+    openGifModal,
+    removeGifModal,
+    addToFavorites,
+    removeFromFavorites,
+} from '../../store/actions';
+import GifModal from './GifModal';
+import { GifImage } from './gif-card.style';
 
 const GifCard = props => {
     const { images, title } = props.gif;
+    const {
+        gif,
+        favorites,
+        addToFavorites,
+        removeFromFavorites,
+        removeGifModal,
+        openGifModal,
+        displayModal,
+        gifContent,
+    } = props;
 
     return (
-        <GifContainer className="gif-content">
-            <img src={images.original.url} width="100%" alt={title} />
-            <div className="bottom-label">
-                <p>{title}</p>
+        <>
+            <GifImage
+                src={images.original.url}
+                width="100%"
+                alt={title}
+                onClick={() => openGifModal(gif)}
+                style={
+                    displayModal && gif == gifContent
+                        ? { outline: '5px solid rgb(255,255,88)' }
+                        : null
+                }
+            />
 
-                {/* Check to see if the GIF is included in favorites 
-                and display the proper icon if liked or unliked */}
-                {!props.favorites.includes(props.gif) ? (
-                    <UnLikedIcon
-                        addToFavorites={props.addToFavorites}
-                        gif={props.gif}
-                    />
-                ) : (
-                    <LikedIcon
-                        removeFromFavorites={props.removeFromFavorites}
-                        gif={props.gif}
-                    />
-                )}
-            </div>
-        </GifContainer>
+            {displayModal && gif == gifContent ? (
+                <GifModal
+                    favorites={favorites}
+                    addToFavorites={addToFavorites}
+                    removeFromFavorites={removeFromFavorites}
+                    gif={gif}
+                    removeGifModal={removeGifModal}
+                />
+            ) : null}
+        </>
     );
 };
 
-export default GifCard;
+const mapStateToProps = state => {
+    return {
+        displayModal: state.displayModal,
+        gifContent: state.gifContent,
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    { openGifModal, removeGifModal, addToFavorites, removeFromFavorites }
+)(GifCard);
