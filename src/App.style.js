@@ -6,8 +6,10 @@ export const AppContainer = styled.div`
 
     .content {
         column-count: 5;
-        padding: 1rem 2rem;
+        padding: 2rem;
         width: 100%;
+        max-width: 140rem;
+        margin: 0 auto;
 
         @media (max-width: 1200px) {
             column-count: 4;
@@ -28,6 +30,18 @@ export const AppContainer = styled.div`
         }
         .gif-wrapper {
             position: relative;
+            outline: none;
+            box-shadow: 0px 0px 10px gray;
+            margin: 0rem 1rem 3rem;
+            cursor: pointer;
+
+            &:hover {
+                transition: all 0.2s ease;
+                transform: scale(1.04);
+                box-shadow: 0px 0px 25px gray;
+                position: relative;
+                z-index: 2;
+            }
         }
     }
 `;

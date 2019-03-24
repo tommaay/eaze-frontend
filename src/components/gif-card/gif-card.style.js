@@ -7,18 +7,7 @@ const fadeIn = keyframes`
 `;
 
 export const GifImage = styled(Img)`
-    outline: none;
-    box-shadow: 0px 0px 10px gray;
-    margin: 1rem 0;
-    cursor: pointer;
-
-    &:hover {
-        transition: all 0.2s ease;
-        transform: scale(1.04);
-        box-shadow: 0px 0px 25px gray;
-        position: relative;
-        z-index: 2;
-    }
+    margin-bottom: -4px;
 `;
 
 export const GifImageModal = styled(GifImage)`
@@ -62,7 +51,7 @@ export const ContentCard = styled.div`
 
     .modal-top {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         height: 10%;
         margin-bottom: 2rem;
 
@@ -117,8 +106,8 @@ export const Icon = styled.i`
     font-size: 20px;
     margin-top: -5px;
     position: absolute;
-    top: 2.2rem;
-    right: 1.3rem;
+    top: 1rem;
+    right: 1rem;
     z-index: 2;
 
     &:hover {

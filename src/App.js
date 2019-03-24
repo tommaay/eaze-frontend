@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTrendingGIFS, searchGIFS, localToFave } from './store/actions';
+import {
+    getTrendingGIFS,
+    searchGIFS,
+    localToFave,
+    removeGifModal,
+} from './store/actions';
 import { formatSearch } from './helper/helper';
 import { AppContainer, bgFade } from './App.style';
 
@@ -50,11 +55,14 @@ class App extends Component {
     };
 
     render() {
-        const { gifs, favorites, displayModal } = this.props;
+        const { gifs, favorites, displayModal, removeGifModal } = this.props;
 
         return (
             <AppContainer>
-                <div style={displayModal ? bgFade : { display: 'none' }} />
+                <div
+                    style={displayModal ? bgFade : { display: 'none' }}
+                    onClick={removeGifModal}
+                />
 
                 <SearchBar
                     changeHandler={this.changeHandler}
@@ -96,5 +104,6 @@ export default connect(
         getTrendingGIFS,
         searchGIFS,
         localToFave,
+        removeGifModal,
     }
 )(App);

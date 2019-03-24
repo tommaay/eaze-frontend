@@ -20,7 +20,7 @@ export const DISPLAY_GIF_MODAL = 'DISPLAY_GIF_MODAL';
 export const REMOVE_GIF_MODAL = 'REMOVE_GIF_MODAL';
 
 const hostUrl = 'https://api.giphy.com';
-const apiKey = '7F4kv7bFrEvWyUuREIDfMkSPsdFm36Hr'; // my person api key from GIPHY
+const apiKey = '7F4kv7bFrEvWyUuREIDfMkSPsdFm36Hr'; // my personal api key from GIPHY
 
 // Get the top 25 trending GIFs api
 // Use {gif}.images.original.url to display in the
