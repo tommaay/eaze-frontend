@@ -1,18 +1,26 @@
 import React from 'react';
-import { SearchContainer, SearchForm } from '../searchbar/SearchBar.style';
+import {
+    SearchContainer,
+    SearchForm,
+    ClearBtn,
+} from '../searchbar/SearchBar.style';
 
 const SearchBar = props => {
+    const { clearSearch, searchGIFS, changeHandler, searchInput } = props;
+
     return (
         <SearchContainer>
-            <SearchForm onSubmit={e => props.searchGIFS(e, props.searchInput)}>
+            <SearchForm onSubmit={e => searchGIFS(e, searchInput)}>
                 <input
                     type="text"
-                    onChange={props.changeHandler}
+                    onChange={changeHandler}
                     name="searchInput"
                     required
                 />
                 <button>Search</button>
             </SearchForm>
+
+            <ClearBtn onClick={clearSearch}>Clear Search</ClearBtn>
         </SearchContainer>
     );
 };

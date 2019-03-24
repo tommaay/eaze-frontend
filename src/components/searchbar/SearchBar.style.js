@@ -9,6 +9,7 @@ export const SearchContainer = styled.div`
     background-image: url(${img});
     background-size: cover;
     background-position: center;
+    position: relative;
 
     @media (max-width: 800px) {
         padding: 8rem 6rem;
@@ -88,5 +89,32 @@ export const SearchForm = styled.form`
             background: rgb(0, 170, 231, 0.8);
             color: white;
         }
+    }
+`;
+
+export const ClearBtn = styled.p`
+    padding: 1rem 1.5rem;
+    border: 1px solid gray;
+    border-radius: 30px;
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    background: rgb(255, 255, 255, 0.7);
+    font-size: 1.4rem;
+    color: rgb(100, 100, 100);
+    box-shadow: 0px 0px 5px black;
+    cursor: pointer;
+
+    &:hover {
+        background: rgb(255, 255, 255);
+        color: orangered;
+        box-shadow: 0px 0px 15px black;
+        transform: translateX(-50%) translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0px 0px 5px black;
+        transform: translateX(-50%) translateY(0);
     }
 `;

@@ -41,6 +41,10 @@ class App extends Component {
         this.props.removeGifModal();
     };
 
+    clearSearch = () => {
+        this.props.getTrendingGIFS();
+    };
+
     render() {
         const { gifs, favorites, displayModal } = this.props;
 
@@ -52,6 +56,7 @@ class App extends Component {
                     changeHandler={this.changeHandler}
                     searchInput={this.state.searchInput}
                     searchGIFS={this.submitHandler}
+                    clearSearch={this.clearSearch}
                 />
 
                 <TabsBar
