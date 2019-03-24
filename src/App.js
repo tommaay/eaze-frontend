@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTrendingGIFS, searchGIFS } from './store/actions';
+import { getTrendingGIFS, searchGIFS, localToFave } from './store/actions';
 import { formatSearch } from './helper/helper';
 import { AppContainer, bgFade } from './App.style';
 
@@ -17,6 +17,14 @@ class App extends Component {
 
     componentDidMount() {
         this.props.getTrendingGIFS();
+
+        const localFavorites = localStorage.getItem('favorites');
+        localFavorites === null
+            ? localStorage.setItem(
+                  'favorites',
+                  JSON.stringify(this.props.favorites)
+              )
+            : this.props.localToFave();
     }
 
     changeHandler = e => {
@@ -36,11 +44,8 @@ class App extends Component {
         this.setState({ homeSelected: false, favoritesSelected: true });
     };
 
-    handleBlur = () => {
-        this.props.removeGifModal();
-    };
-
     clearSearch = () => {
+        this.setState({ searchInput: '' });
         this.props.getTrendingGIFS();
     };
 
@@ -90,5 +95,6 @@ export default connect(
     {
         getTrendingGIFS,
         searchGIFS,
+        localToFave,
     }
 )(App);

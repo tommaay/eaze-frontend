@@ -15,6 +15,7 @@ const SearchBar = props => {
                     type="text"
                     onChange={changeHandler}
                     name="searchInput"
+                    value={searchInput}
                     required
                 />
                 <button>Search</button>

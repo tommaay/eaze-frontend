@@ -1,11 +1,12 @@
 import styled, { keyframes } from 'styled-components';
+import Img from 'react-image';
 
 const fadeIn = keyframes`
   0% {opacity: 0}
   100% {left: 1}
 `;
 
-export const GifImage = styled.img`
+export const GifImage = styled(Img)`
     outline: none;
     box-shadow: 0px 0px 10px gray;
     margin: 1rem 0;

@@ -10,7 +10,6 @@ const LikedIcon = props => {
             style={{ color: 'red' }}
             onClick={() => {
                 removeFromFavorites(gif);
-                gif.favorite = false;
             }}
         />
     );

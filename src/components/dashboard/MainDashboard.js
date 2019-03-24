@@ -13,12 +13,7 @@ const MainDashBoard = props => {
                   ))
                 : favorites.length > 0
                 ? favorites.map(gif => (
-                      <GifCard
-                          gif={gif}
-                          key={gif.id}
-                          favorites={favorites}
-                          inFavorites
-                      />
+                      <GifCard gif={gif} key={gif.id} favorites={favorites} />
                   ))
                 : null}
         </>

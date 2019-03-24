@@ -14,6 +14,7 @@ export const GET_BY_ID_FAIL = 'GET_BY_ID_FAIL';
 
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
+export const LOCAL_TO_FAVORITES = 'LOCAL_TO_FAVORITES';
 
 export const DISPLAY_GIF_MODAL = 'DISPLAY_GIF_MODAL';
 export const REMOVE_GIF_MODAL = 'REMOVE_GIF_MODAL';
@@ -52,15 +53,31 @@ export const searchGIFS = searchItem => dispatch => {
 
 // Add GIF to favorites
 export const addToFavorites = gif => {
-    return { type: ADD_TO_FAVORITES, payload: gif };
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    favorites.push(gif);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+
+    return { type: ADD_TO_FAVORITES, payload: favorites };
 };
 
 // Remove GIF from favorites
 export const removeFromFavorites = gif => {
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    const updatedFave = favorites.filter(
+        res => res.id.toString() !== gif.id.toString()
+    );
+    localStorage.setItem('favorites', JSON.stringify(updatedFave));
+
     return {
         type: REMOVE_FROM_FAVORITES,
-        payload: gif,
+        payload: updatedFave,
     };
+};
+
+// Store local storage favorites to Redux Store
+export const localToFave = () => {
+    const favorites = JSON.parse(localStorage.getItem('favorites'));
+    return { type: LOCAL_TO_FAVORITES, payload: favorites };
 };
 
 // Add gif info to store
@@ -69,6 +86,6 @@ export const openGifModal = gif => {
 };
 
 // Remove gif info from store
-export const removeGifModal = gif => {
+export const removeGifModal = () => {
     return { type: REMOVE_GIF_MODAL };
 };

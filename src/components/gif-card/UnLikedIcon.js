@@ -7,7 +7,6 @@ const UnLikedIcon = props => {
             className="fa fa-heart fa-2x heart icon"
             onClick={() => {
                 props.addToFavorites(props.gif);
-                props.gif.favorite = true;
             }}
         />
     );
