@@ -9,6 +9,14 @@ export const SearchContainer = styled.div`
     background-image: url(${img});
     background-size: cover;
     background-position: center;
+
+    @media (max-width: 800px) {
+        padding: 8rem 6rem;
+    }
+
+    @media (max-width: 600px) {
+        padding: 8rem 3rem;
+    }
 `;
 
 export const SearchForm = styled.form`

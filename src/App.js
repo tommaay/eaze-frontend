@@ -2,40 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getTrendingGIFS, searchGIFS } from './store/actions';
 import { formatSearch } from './helper/helper';
-import styled from 'styled-components';
+import { AppContainer } from './App.style';
 
 import SearchBar from './components/searchbar/SearchBar';
 import FavoritesDashBoard from './components/dashboard/FavoritesDashBoard';
 import MainDashBoard from './components/dashboard/MainDashboard';
 import TabsBar from './components/dashboard/TabsBar';
-
-const AppContainer = styled.div`
-    min-height: 100vh;
-    background: whitesmoke;
-
-    .content {
-        column-count: 5;
-        padding: 1rem 2rem;
-        width: 100%;
-
-        @media (max-width: 1200px) {
-            column-count: 4;
-        }
-
-        @media (max-width: 1000px) {
-            column-count: 3;
-        }
-
-        @media (max-width: 800px) {
-            column-count: 2;
-            padding: 1rem;
-        }
-
-        @media (max-width: 500px) {
-            column-count: 1;
-        }
-    }
-`;
 
 class App extends Component {
     state = {
@@ -63,6 +35,10 @@ class App extends Component {
 
     selectFavorites = () => {
         this.setState({ home: false, favorites: true });
+    };
+
+    handleBlur = () => {
+        this.props.removeGifModal();
     };
 
     render() {
