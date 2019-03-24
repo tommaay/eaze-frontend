@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getTrendingGIFS, searchGIFS } from './store/actions';
 import { formatSearch } from './helper/helper';
-import { AppContainer } from './App.style';
+import { AppContainer, bgFade } from './App.style';
 
 import SearchBar from './components/searchbar/SearchBar';
 import FavoritesDashBoard from './components/dashboard/FavoritesDashBoard';
@@ -42,10 +42,12 @@ class App extends Component {
     };
 
     render() {
-        const { gifs, favorites } = this.props;
+        const { gifs, favorites, displayModal } = this.props;
 
         return (
             <AppContainer>
+                <div style={displayModal ? bgFade : { display: 'none' }} />
+
                 <SearchBar
                     changeHandler={this.changeHandler}
                     searchInput={this.state.searchInput}
@@ -76,6 +78,7 @@ const mapStateToProps = state => {
     return {
         gifs: state.gifs,
         favorites: state.favorites,
+        displayModal: state.displayModal,
     };
 };
 

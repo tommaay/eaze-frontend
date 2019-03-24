@@ -27,6 +27,7 @@ export const GifImageModal = styled(GifImage)`
     margin: 0 auto;
     margin-bottom: 2rem;
     box-shadow: 0px 0px 4px gray;
+    cursor: auto;
 
     &:hover {
         transition: all 0.2s ease;
@@ -61,6 +62,12 @@ export const ContentCard = styled.div`
 
         .close-icon {
             cursor: pointer;
+
+            &:hover {
+                color: red;
+                transition: all 0.2s ease;
+                transform: scale(1.05);
+            }
         }
     }
 
@@ -90,4 +97,9 @@ export const Icon = styled.i`
     color: red;
     font-size: 30px;
     margin-top: -5px;
+
+    &:hover {
+        transition: all 0.2s ease;
+        transform: scale(1.05);
+    }
 `;

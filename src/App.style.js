@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { redBright } from 'ansi-colors';
 
 export const AppContainer = styled.div`
     min-height: 100vh;
@@ -27,3 +28,13 @@ export const AppContainer = styled.div`
         }
     }
 `;
+
+export const bgFade = {
+    position: 'fixed',
+    zIndex: 2,
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    background: 'rgb(100, 100, 100, 0.95',
+};
