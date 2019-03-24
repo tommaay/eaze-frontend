@@ -86,7 +86,7 @@ export const SearchForm = styled.form`
         }
 
         &:hover {
-            background: rgb(0, 170, 231, 0.8);
+            background: rgb(0, 170, 231);
             color: white;
         }
     }

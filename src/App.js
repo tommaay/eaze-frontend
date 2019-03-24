@@ -5,15 +5,14 @@ import { formatSearch } from './helper/helper';
 import { AppContainer, bgFade } from './App.style';
 
 import SearchBar from './components/searchbar/SearchBar';
-import FavoritesDashBoard from './components/dashboard/FavoritesDashBoard';
 import MainDashBoard from './components/dashboard/MainDashboard';
 import TabsBar from './components/dashboard/TabsBar';
 
 class App extends Component {
     state = {
         searchInput: '',
-        home: true,
-        favorites: false,
+        homeSelected: true,
+        favoritesSelected: false,
     };
 
     componentDidMount() {
@@ -30,11 +29,11 @@ class App extends Component {
     };
 
     selectHome = () => {
-        this.setState({ home: true, favorites: false });
+        this.setState({ homeSelected: true, favoritesSelected: false });
     };
 
     selectFavorites = () => {
-        this.setState({ home: false, favorites: true });
+        this.setState({ homeSelected: false, favoritesSelected: true });
     };
 
     handleBlur = () => {
@@ -60,19 +59,18 @@ class App extends Component {
                 />
 
                 <TabsBar
-                    home={this.state.home}
+                    homeSelected={this.state.homeSelected}
                     selectHome={this.selectHome}
                     selectFavorites={this.selectFavorites}
                 />
 
                 <section className="content">
-                    {/* Display the home dashboard or favorites 
-                    depending on the selected tab */}
-                    {this.state.home ? (
-                        <MainDashBoard gifs={gifs} favorites={favorites} />
-                    ) : (
-                        <FavoritesDashBoard favorites={favorites} />
-                    )}
+                    {/* MainDashboard => GifCard => GifModal */}
+                    <MainDashBoard
+                        gifs={gifs}
+                        favorites={favorites}
+                        homeSelected={this.state.homeSelected}
+                    />
                 </section>
             </AppContainer>
         );

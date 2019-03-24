@@ -112,9 +112,13 @@ export const ContentCard = styled.div`
 
 export const Icon = styled.i`
     cursor: pointer;
-    color: red;
-    font-size: 30px;
+    color: white;
+    font-size: 20px;
     margin-top: -5px;
+    position: absolute;
+    top: 2.2rem;
+    right: 1.3rem;
+    z-index: 2;
 
     &:hover {
         transition: all 0.2s ease;

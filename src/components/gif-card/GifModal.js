@@ -1,21 +1,10 @@
 import React from 'react';
 import { ContentCard } from './gif-card.style';
-import LikedIcon from './LikedIcon';
-import UnLikedIcon from './UnLikedIcon';
 import { GifImageModal } from './gif-card.style';
 
+// MainDashboard => GifCard => **GifModal**
 const GifModal = props => {
-    const {
-        gif,
-        addToFavorites,
-        removeFromFavorites,
-        favorites,
-        removeGifModal,
-        images,
-        title,
-        displayModal,
-        inFavorites,
-    } = props;
+    const { gif, removeGifModal, images, title } = props;
 
     return (
         <ContentCard>
@@ -24,19 +13,6 @@ const GifModal = props => {
                 <h4 className="close-icon" onClick={removeGifModal}>
                     X
                 </h4>
-
-                {/* Check to see if the GIF is included in favorites 
-                and display the proper icon if liked or unliked */}
-                {!favorites.includes(gif) ? (
-                    <UnLikedIcon addToFavorites={addToFavorites} gif={gif} />
-                ) : (
-                    <LikedIcon
-                        removeFromFavorites={removeFromFavorites}
-                        gif={gif}
-                        removeGifModal={removeGifModal}
-                        inFavorites={inFavorites}
-                    />
-                )}
             </div>
 
             {/* GIF middle image */}

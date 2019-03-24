@@ -26,6 +26,9 @@ export const AppContainer = styled.div`
             column-count: 1;
             margin-top: 25rem;
         }
+        .gif-wrapper {
+            position: relative;
+        }
     }
 `;
 
