@@ -15,6 +15,9 @@ export const GET_BY_ID_FAIL = 'GET_BY_ID_FAIL';
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 
+export const DISPLAY_GIF_MODAL = 'DISPLAY_GIF_MODAL';
+export const REMOVE_GIF_MODAL = 'REMOVE_GIF_MODAL';
+
 const hostUrl = 'http://api.giphy.com';
 const apiKey = '7F4kv7bFrEvWyUuREIDfMkSPsdFm36Hr'; // my person api key from GIPHY
 
@@ -64,4 +67,16 @@ export const removeFromFavorites = gif => {
         type: REMOVE_FROM_FAVORITES,
         payload: gif,
     };
+};
+
+// Add gif info to store
+export const openGifModal = gif => {
+    console.log('getting gif content: ', gif);
+    return { type: DISPLAY_GIF_MODAL, payload: gif };
+};
+
+// Remove gif info from store
+export const removeGifModal = gif => {
+    console.log('removing gif content: ', gif);
+    return { type: REMOVE_GIF_MODAL };
 };

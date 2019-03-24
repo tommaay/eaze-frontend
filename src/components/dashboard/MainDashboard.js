@@ -5,13 +5,7 @@ const FavoritesDashBoard = props => {
     return (
         <>
             {props.gifs.map(gif => (
-                <GifCard
-                    gif={gif}
-                    key={gif.id}
-                    addToFavorites={props.addToFavorites}
-                    removeFromFavorites={props.removeFromFavorites}
-                    favorites={props.favorites}
-                />
+                <GifCard gif={gif} key={gif.id} favorites={props.favorites} />
             ))}
         </>
     );

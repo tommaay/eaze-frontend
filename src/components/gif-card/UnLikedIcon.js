@@ -1,8 +1,9 @@
 import React from 'react';
+import { Icon } from './gif-card.style';
 
 const UnLikedIcon = props => {
     return (
-        <i
+        <Icon
             className="fa fa-heart-o fa-2x heart icon"
             onClick={() => {
                 props.addToFavorites(props.gif);
