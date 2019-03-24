@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import spinner from '../../assets/images/loading.gif';
 
 export const GifContainer = styled.div`
     box-shadow: 0px 0px 10px gray;
@@ -16,6 +17,10 @@ export const GifContainer = styled.div`
     img,
     .bottom-label {
         outline: none;
+    }
+
+    img {
+        background-image: url(${spinner});
     }
 
     .bottom-label {

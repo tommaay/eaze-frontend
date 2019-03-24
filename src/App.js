@@ -19,8 +19,25 @@ const AppContainer = styled.div`
     background: whitesmoke;
 
     .content {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+        column-count: 5;
+        padding: 2rem;
+
+        @media (max-width: 1200px) {
+            column-count: 4;
+        }
+
+        @media (max-width: 1000px) {
+            column-count: 3;
+        }
+
+        @media (max-width: 800px) {
+            column-count: 2;
+            padding: 1rem;
+        }
+
+        @media (max-width: 500px) {
+            column-count: 1;
+        }
     }
 `;
 
