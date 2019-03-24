@@ -6,7 +6,7 @@ const Tabs = styled.div`
     justify-content: center;
     width: 100%;
     height: 5rem;
-    background: rgb(75, 83, 92, 0.3);
+    background: rgb(0, 170, 231, 0.5);
 `;
 
 const Tab = styled.div`

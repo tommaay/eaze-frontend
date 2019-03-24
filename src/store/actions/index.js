@@ -27,13 +27,11 @@ export const getTrendingGIFS = () => dispatch => {
     dispatch({ type: GET_TRENDING_START });
 
     axios
-        .get(`${hostUrl}/v1/gifs/trending?api_key=${apiKey}`)
+        .get(`${hostUrl}/v1/gifs/trending?api_key=${apiKey}&limit=40`)
         .then(res => {
-            console.log('getTrendingGIFS res.data: ', res.data.data);
             dispatch({ type: GET_TRENDING_SUCCESS, payload: res.data.data });
         })
         .catch(err => {
-            console.log('Get trending gifs error: ', err);
             dispatch({ type: GET_TRENDING_FAIL, error: err });
         });
 };
@@ -45,24 +43,20 @@ export const searchGIFS = searchItem => dispatch => {
     axios
         .get(`${hostUrl}/v1/gifs/search?q=${searchItem}&api_key=${apiKey}`)
         .then(res => {
-            console.log('searchGIFS res.data: ', res.data.data);
             dispatch({ type: SEARCH_GIF_SUCCESS, payload: res.data.data });
         })
         .catch(err => {
-            console.log('Search gifs error: ', err);
             dispatch({ type: SEARCH_GIF_FAIL, error: err });
         });
 };
 
 // Add GIF to favorites
 export const addToFavorites = gif => {
-    console.log('adding to favorites: ', gif);
     return { type: ADD_TO_FAVORITES, payload: gif };
 };
 
 // Remove GIF from favorites
 export const removeFromFavorites = gif => {
-    console.log('removing from favorites: ', gif);
     return {
         type: REMOVE_FROM_FAVORITES,
         payload: gif,
@@ -71,12 +65,10 @@ export const removeFromFavorites = gif => {
 
 // Add gif info to store
 export const openGifModal = gif => {
-    console.log('getting gif content: ', gif);
     return { type: DISPLAY_GIF_MODAL, payload: gif };
 };
 
 // Remove gif info from store
 export const removeGifModal = gif => {
-    console.log('removing gif content: ', gif);
     return { type: REMOVE_GIF_MODAL };
 };
