@@ -10,6 +10,7 @@ const FavoritesDashBoard = props => {
                           gif={gif}
                           key={gif.id}
                           favorites={props.favorites}
+                          inFavorites
                       />
                   ))
                 : null}

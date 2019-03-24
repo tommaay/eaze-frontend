@@ -53,12 +53,13 @@ export const ContentCard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-shadow: 0 0 1.5px gray;
 
     .modal-top {
         display: flex;
         justify-content: space-between;
         height: 10%;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
 
         .close-icon {
             cursor: pointer;
@@ -66,7 +67,7 @@ export const ContentCard = styled.div`
             &:hover {
                 color: red;
                 transition: all 0.2s ease;
-                transform: scale(1.05);
+                transform: scale(1.1);
             }
         }
     }
@@ -76,13 +77,21 @@ export const ContentCard = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0 2rem;
+        padding: 2rem;
+        background: rgb(0, 170, 231, 0.8);
+        color: white;
+        margin: -15px;
+        margin-top: 2rem;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
 
         .modal-content {
             text-align: center;
+            text-shadow: 0 0 5px gray;
 
             h5 {
                 margin-bottom: 1rem;
+                line-height: 1.3;
             }
         }
 
@@ -100,6 +109,6 @@ export const Icon = styled.i`
 
     &:hover {
         transition: all 0.2s ease;
-        transform: scale(1.05);
+        transform: scale(1.1);
     }
 `;

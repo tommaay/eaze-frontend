@@ -13,6 +13,8 @@ const GifModal = props => {
         removeGifModal,
         images,
         title,
+        displayModal,
+        inFavorites,
     } = props;
 
     return (
@@ -31,13 +33,16 @@ const GifModal = props => {
                     <LikedIcon
                         removeFromFavorites={removeFromFavorites}
                         gif={gif}
+                        removeGifModal={removeGifModal}
+                        inFavorites={inFavorites}
                     />
                 )}
             </div>
 
+            {/* GIF middle image */}
             <GifImageModal src={images.original.url} width="100%" alt={title} />
 
-            {/* GIF content info */}
+            {/* GIF content info on the bottom of the modal */}
             <div className="modal-content-container">
                 <div className="modal-content">
                     <h5 className="capitalize">{gif.title}</h5>

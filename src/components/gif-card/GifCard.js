@@ -20,6 +20,7 @@ const GifCard = props => {
         openGifModal,
         displayModal,
         gifContent,
+        inFavorites,
     } = props;
 
     return (
@@ -46,6 +47,7 @@ const GifCard = props => {
                     images={images}
                     title={title}
                     displayModal={displayModal}
+                    inFavorites={inFavorites}
                 />
             ) : null}
         </>
