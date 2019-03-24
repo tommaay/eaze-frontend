@@ -17,6 +17,12 @@ export const SearchContainer = styled.div`
     @media (max-width: 600px) {
         padding: 8rem 3rem;
     }
+
+    @media (max-width: 550px) {
+        top: 0;
+        position: fixed;
+        z-index: 3;
+    }
 `;
 
 export const SearchForm = styled.form`

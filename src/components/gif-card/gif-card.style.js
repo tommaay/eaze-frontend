@@ -38,7 +38,7 @@ export const GifImageModal = styled(GifImage)`
 
 export const ContentCard = styled.div`
     position: fixed;
-    z-index: 3;
+    z-index: 6;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -54,6 +54,10 @@ export const ContentCard = styled.div`
     flex-direction: column;
     justify-content: space-between;
     text-shadow: 0 0 1.5px gray;
+
+    @media (max-width: 600px) {
+        width: 90%;
+    }
 
     .modal-top {
         display: flex;

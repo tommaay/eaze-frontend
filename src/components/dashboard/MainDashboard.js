@@ -1,7 +1,7 @@
 import React from 'react';
 import GifCard from '../gif-card/GifCard';
 
-const FavoritesDashBoard = props => {
+const MainDashBoard = props => {
     return (
         <>
             {props.gifs.map(gif => (
@@ -11,4 +11,4 @@ const FavoritesDashBoard = props => {
     );
 };
 
-export default FavoritesDashBoard;
+export default MainDashBoard;

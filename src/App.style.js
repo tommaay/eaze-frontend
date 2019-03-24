@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { redBright } from 'ansi-colors';
 
 export const AppContainer = styled.div`
     min-height: 100vh;
@@ -20,18 +19,19 @@ export const AppContainer = styled.div`
 
         @media (max-width: 800px) {
             column-count: 2;
-            padding: 1rem;
+            padding: 1.5rem;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 550px) {
             column-count: 1;
+            margin-top: 25rem;
         }
     }
 `;
 
 export const bgFade = {
     position: 'fixed',
-    zIndex: 2,
+    zIndex: 4,
     width: '100%',
     height: '100%',
     top: 0,

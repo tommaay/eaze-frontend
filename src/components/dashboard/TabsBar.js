@@ -1,31 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const Tabs = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 5rem;
-    background: rgb(0, 170, 231, 0.5);
-`;
-
-const Tab = styled.div`
-    width: 15rem;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 1.4rem;
-    text-shadow: 0px 0px 3px black;
-`;
-
-const selected = {
-    borderBottom: '4px solid rgb(0, 170, 231)',
-    fontSize: '1.5rem',
-};
+import { Tabs, Tab, selected } from './tabs-bar.style';
 
 const TabsBar = props => {
     return (

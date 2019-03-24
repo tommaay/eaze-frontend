@@ -27,7 +27,7 @@ export const getTrendingGIFS = () => dispatch => {
     dispatch({ type: GET_TRENDING_START });
 
     axios
-        .get(`${hostUrl}/v1/gifs/trending?api_key=${apiKey}&limit=40`)
+        .get(`${hostUrl}/v1/gifs/trending?api_key=${apiKey}&limit=30`)
         .then(res => {
             dispatch({ type: GET_TRENDING_SUCCESS, payload: res.data.data });
         })
