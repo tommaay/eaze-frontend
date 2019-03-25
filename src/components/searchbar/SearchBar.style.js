@@ -63,7 +63,8 @@ export const SearchForm = styled.form`
         }
 
         @media (max-width: 550px) {
-            width: 80%;
+            width: 75%;
+            opacity: 1;
         }
     }
 
@@ -87,16 +88,17 @@ export const SearchForm = styled.form`
         }
 
         @media (max-width: 550px) {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             background: black;
             color: white;
             text-shadow: 0 0 5px gray;
-            width: 20%;
+            width: 25%;
         }
 
         &:hover {
             background: rgb(0, 170, 231);
             color: white;
+            opacity: 1;
         }
     }
 `;
@@ -109,7 +111,7 @@ export const ClearBtn = styled.p`
     left: 50%;
     bottom: 2rem;
     transform: translateX(-50%);
-    background: rgb(255, 255, 255, 0.7);
+    background: rgb(255, 255, 255, 1);
     font-size: 1.4rem;
     color: rgb(100, 100, 100);
     box-shadow: 0px 0px 5px black;
