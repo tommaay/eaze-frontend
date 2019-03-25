@@ -30,8 +30,16 @@ export const AppContainer = styled.div`
             padding: 4rem;
         }
         .gif-wrapper {
-            position: relative;
             margin: 0rem 1rem 3rem;
+            position: relative;
+
+            &:hover {
+                transition: all 0.2s ease;
+                transform: scale(1.04);
+                box-shadow: 0px 0px 25px gray;
+                position: relative;
+                z-index: 2;
+            }
         }
     }
 `;

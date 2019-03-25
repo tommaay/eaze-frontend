@@ -7,7 +7,7 @@ const LikedIcon = props => {
     return (
         <Icon
             className="fa fa-heart fa-2x heart icon"
-            style={{ color: 'red' }}
+            style={{ color: 'deeppink' }}
             onClick={() => {
                 removeFromFavorites(gif);
             }}

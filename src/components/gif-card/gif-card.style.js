@@ -11,14 +11,6 @@ export const GifImage = styled(Img)`
     outline: none;
     box-shadow: 0px 0px 10px gray;
     cursor: pointer;
-
-    &:hover {
-        transition: all 0.2s ease;
-        transform: scale(1.04);
-        box-shadow: 0px 0px 25px gray;
-        position: relative;
-        z-index: 2;
-    }
 `;
 
 export const GifImageModal = styled(GifImage)`
