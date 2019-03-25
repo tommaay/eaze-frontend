@@ -6,7 +6,7 @@ Frontend application that utilizes the [Giphy](https://giphy.com/) API.
 
 ## To access the application:
 
-Got to: https://eaze-take-home-tommy-huynh.netlify.com/
+Go to: https://eaze-take-home-tommy-huynh.netlify.com/
 
 or
 
